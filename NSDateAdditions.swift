@@ -1,14 +1,25 @@
 //
-//  NSDateAdditions.swift
+//  Additions.swift
 //  CalendarLogic
 //
-//  Created by Lancy on 01/06/15.
+//  Created by Happiest Minds on 01/06/15.
 //  Copyright (c) 2015 Lancy. All rights reserved.
 //
 
 import Foundation
 
 extension NSDate {
+    
+    class func date(day: Int, month: Int, year: Int) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        let dayString = String(format: "%02d", day)
+        let monthString = String(format: "%02d", month)
+        let yearString = String(format: "%04d", year)
+        
+        return dateFormatter.dateFromString(dayString + "/" + monthString + "/" + yearString)!
+    }
    
     var startOfDay: NSDate {
         let components = self.components
@@ -55,6 +66,30 @@ extension NSDate {
     
     var numberOfDaysInMonth: Int {
         return NSCalendar.currentCalendar().rangeOfUnit(.CalendarUnitDay, inUnit: .CalendarUnitMonth, forDate: self).length
+    }
+    
+    var day: Int {
+        return components.day
+    }
+    
+    var month: Int {
+        return components.month
+    }
+    
+    var year: Int {
+        return components.year
+    }
+    
+    var minute: Int {
+        return components.minute
+    }
+    
+    var second: Int {
+        return components.second
+    }
+    
+    var hour: Int {
+        return components.hour
     }
     
     //MARK: Private variable and methods.
