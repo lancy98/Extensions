@@ -2,7 +2,7 @@
 //  Additions.swift
 //  CalendarLogic
 //
-//  Created by Happiest Minds on 01/06/15.
+//  Created by Lancy on 01/06/15.
 //  Copyright (c) 2015 Lancy. All rights reserved.
 //
 
