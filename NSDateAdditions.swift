@@ -26,6 +26,19 @@ extension NSDate {
         dateFormatter.dateFormat = dateFormat
         return dateFormatter.stringFromDate(self)
     }
+    
+    func dateByAdding(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) -> NSDate {
+        let dateComponent = NSDateComponents()
+        
+        dateComponent.year = year
+        dateComponent.month = month
+        dateComponent.day = day
+        dateComponent.hour = hour
+        dateComponent.minute = minute
+        dateComponent.second = second
+
+        return NSCalendar.currentCalendar().dateByAddingComponents(dateComponent, toDate: self, options: NSCalendarOptions(0))!
+    }
    
     var startOfDay: NSDate {
         let components = self.components
