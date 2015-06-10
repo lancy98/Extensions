@@ -8,10 +8,11 @@
 
 import Foundation
 
+let dateFormatter = NSDateFormatter()
+
 extension NSDate {
     
     class func date(day: Int, month: Int, year: Int) -> NSDate {
-        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
         let dayString = String(format: "%02d", day)
@@ -19,6 +20,11 @@ extension NSDate {
         let yearString = String(format: "%04d", year)
         
         return dateFormatter.dateFromString(dayString + "/" + monthString + "/" + yearString)!
+    }
+    
+    func string(dateFormat: String) -> String {
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.stringFromDate(self)
     }
    
     var startOfDay: NSDate {
