@@ -22,6 +22,11 @@ extension NSDate {
         return dateFormatter.dateFromString(dayString + "/" + monthString + "/" + yearString)!
     }
     
+    class func date(fromString: String, dateFormat: String) -> NSDate {
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.dateFromString(fromString)!
+    }
+    
     func string(dateFormat: String) -> String {
         dateFormatter.dateFormat = dateFormat
         return dateFormatter.stringFromDate(self)
